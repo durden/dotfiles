@@ -1,0 +1,8 @@
+[color]
+	dirr = auto
+	status = auto
+	branch = auto
+	diff = auto
+[user]
+	name = Luke Lee
+	email = durdenmisc@gmail.com

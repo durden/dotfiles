@@ -1,0 +1,4 @@
+My personal dotfiles for my OS machine.
+
+You can install all of the dot files by executing the install.sh script.  Don't
+worry it won't overwrite any existing files you may have.
