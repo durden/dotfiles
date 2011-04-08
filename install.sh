@@ -14,6 +14,12 @@ for file in `ls`; do
        continue
     fi
 
-    echo "Linking $file to $link_name"
-    ln -s `pwd`/$file ~/.$file
+    if [ -d $file ]; then
+        src="`pwd`/$file/"
+    else
+        src="`pwd`/$file"
+    fi
+
+    echo "Linking $src to $link_name"
+    ln -s $src ~/.$file
 done
