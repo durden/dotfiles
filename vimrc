@@ -37,8 +37,13 @@ map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 " Run pep8 plugin on current file
 map <Leader>pep :call Pep8()<CR>
 
+" Turn on relative line numbering, for easy copy/paste of chunks of lines
+map <Leader>rel :set relativenumber<CR>
+" Turn off relative line numbering
+map <Leader>nrel :set nu<CR>
+
 " Possible way to do it with autocmd so that it only shows up for python files?
-"autocmd FileType python nnoremap <buffer> <Leader> :call Pep8()<CR> 
+"autocmd FileType python nnoremap <buffer> <Leader> :call Pep8()<CR>
 
 "---------------------------------- PLUGINS ----------------------------------
 source ~/.vim/plugin/supertab.vim
