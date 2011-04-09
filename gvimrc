@@ -5,5 +5,8 @@ set columns=90
 " the directory you spawned vim from
 map <Leader>ew :tabnew <C-R>=expand("%:p:h") . "/" <CR>
 
-" Shortcut for opening new tab
+" Shortcut for browsing and opening new tab
+map <Leader>btn :browse tabnew<CR>
+
+" Shortcut for opening new tab with file
 map <Leader>tn :tabnew
