@@ -42,6 +42,9 @@ map <Leader>rel :set relativenumber<CR>
 " Turn off relative line numbering
 map <Leader>nrel :set nu<CR>
 
+" Hide search highlighted text
+map <Leader> :nohl<CR>
+
 " Possible way to do it with autocmd so that it only shows up for python files?
 "autocmd FileType python nnoremap <buffer> <Leader> :call Pep8()<CR>
 
