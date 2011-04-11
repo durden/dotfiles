@@ -48,5 +48,8 @@ map <Leader> :nohl<CR>
 " Possible way to do it with autocmd so that it only shows up for python files?
 "autocmd FileType python nnoremap <buffer> <Leader> :call Pep8()<CR>
 
+" Trim trailing whitespace from file
+map <Leader>trim :%s/\s\+$//<CR>:w<CR>
+
 "---------------------------------- PLUGINS ----------------------------------
 source ~/.vim/plugin/supertab.vim
