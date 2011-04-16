@@ -1,9 +1,8 @@
+"-------------------------- GENERAL OPTIONS ----------------------------------
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocp
-
-"-------------------------- GENERAL OPTIONS ----------------------------------
-set showcmd
+set showcmd     " Show command in window
 set showmatch   " show matching opening bracket/paren. when closing
 set incsearch   " incremental search
 syntax on
