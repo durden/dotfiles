@@ -11,6 +11,7 @@ colorscheme desert
 set ruler
 set hls
 set guifont=Inconsolata:h14
+filetype on
 filetype plugin on
 
 " Keep backup files in one location so their easier to find
@@ -51,4 +52,3 @@ map <Leader> :nohl<CR>
 map <Leader>trim :%s/\s\+$//<CR>:w<CR>
 
 "---------------------------------- PLUGINS ----------------------------------
-source ~/.vim/plugin/supertab.vim
