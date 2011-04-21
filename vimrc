@@ -5,6 +5,7 @@ set nocp
 set showcmd     " Show command in window
 set showmatch   " show matching opening bracket/paren. when closing
 set incsearch   " incremental search
+set wildmenu    " Additional help when tabbing directories, etc.
 syntax on
 set nu
 colorscheme desert
