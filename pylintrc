@@ -13,8 +13,12 @@
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-#init-hook=
-
+init-hook='import sys; install_dir="/Applications/GoogleAppEngineLauncher.app/Contents/" + \
+                        "Resources/GoogleAppEngine-default.bundle/Contents/" + \
+                        "Resources/google_appengine";
+                        sys.path.append(install_dir);
+                        sys.path.append(install_dir + "/lib/yaml/lib");
+                        sys.path.append(install_dir + "/lib/fancy_urllib/")'
 # Profiled execution.
 profile=no
 
