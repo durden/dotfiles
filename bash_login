@@ -1,4 +1,4 @@
-PATH=$PATH:/Applications:/usr/local/git/bin
+PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Users/durden/Documents/code/bin
 
 # Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
 
