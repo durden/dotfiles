@@ -4,6 +4,7 @@ set colorcolumn=80
 
 filetype on
 filetype plugin on
+filetype plugin indent on
 
 " Open a file in the same directory of the open file, regardless of
 " the directory you spawned vim from
