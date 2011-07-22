@@ -26,6 +26,7 @@ set ts=4        " tab stop
 set sw=4        " shift width
 set sts=4
 set expandtab
+set shiftround  " Round indents to multiple of shift width
 set wiw=80
 set bs=2        " allow backspacing over everything in insert mode
 set autoindent  " always set autoindenting on
