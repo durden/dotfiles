@@ -32,6 +32,9 @@ set bs=2        " allow backspacing over everything in insert mode
 set autoindent  " always set autoindenting on
 
 "------------------------------ MAPPINGS -------------------------------------
+" Reaching for Esc is annoying
+inoremap ;; <Esc>
+
 " Open a file in the same directory of the open file, regardless of the
 " directory you spawned vim from
 map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
