@@ -6,6 +6,9 @@ PS1="\[[\e[35;40m\]\u@\[\e[33;40m\]\h:\[\e[32;40m\]\w\[\e[35;40m\]\[\e[0m\]] $ "
 alias ls='ls -G'
 alias ll='ls -al'
 
+VIRTUALENV_DIR="/Users/durden/.virtualenvs"
+export VIRTUALENV_DIR
+
 ##
 # Your previous /Users/durden/.bash_login file was backed up as /Users/durden/.bash_login.macports-saved_2009-12-31_at_08:33:12
 ##
