@@ -33,7 +33,7 @@ set autoindent  " always set autoindenting on
 
 "------------------------------ MAPPINGS -------------------------------------
 " Reaching for Esc is annoying
-inoremap ;; <Esc>
+inoremap kk <Esc>
 
 " Open a file in the same directory of the open file, regardless of the
 " directory you spawned vim from
@@ -55,5 +55,11 @@ map <Leader> :nohl<CR>
 
 " Trim trailing whitespace from file
 map <Leader>trim :%s/\s\+$//<CR>:w<CR>
+
+" Insert new line above current without leaving command mode
+map <S-Enter> O<Esc>
+
+" Insert new line below current without leaving command mode
+map <CR> o<Esc>
 
 "---------------------------------- PLUGINS ----------------------------------
