@@ -4,3 +4,4 @@
 *.db
 VimballRecord
 tags
+*.netrwhist
