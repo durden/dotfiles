@@ -19,6 +19,7 @@ export VIRTUALENV_DIR
 
 source /opt/local/etc/bash_completion.d/git-completion.bash
 
+[[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 # virtualenv
 export WORKON_HOME=~/.virtualenvs
@@ -27,4 +28,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Setting PATH for MacPython 2.6
 # The orginal version is saved in .bash_login.pysave
 #PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_login.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
