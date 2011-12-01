@@ -1,6 +1,17 @@
-PS1="\[[\e[35;40m\]\u@\[\e[33;40m\]\h:\[\e[32;40m\]\w\[\e[35;40m\]\[\e[0m\]] $ "
-alias ls='ls -G'
-alias ll='ls -al'
+PS1="\[[\e[35;1m\]\u@\[\e[33;1m\]\h:\[\e[32;1m\]\w\[\e[35;1m\]\[\e[0m\]] $ "
+
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+
+alias ack='ack-grep'
+alias oack='ack -l $@ | xargs gvim -p'
+
+alias rm='rm -i'
+
+# Avoid gvim 7.3 error in ubuntu
+# https://bugs.launchpad.net/ubuntu/+source/vim/+bug/771810
+alias gvim='gvim -f'
 
 # virtualenv
 VIRTUALENV_DIR="/home/lukelee/.virtualenvs"
@@ -8,6 +19,19 @@ export VIRTUALENV_DIR
 export WORKON_HOME=$VIRTUAL_ENV_DIR
 source /usr/local/bin/virtualenvwrapper.sh 
 
-source /opt/local/etc/bash_completion.d/git-completion.bash
-
 export PATH
+
+HDF5_DIR=/usr/local/hdf5/
+export HDF5_DIR
+
+LD_LIBRARY_PATH=/usr/local/hdf5/lib/
+export LD_LIBRARY_PATH
+
+# Add color diffs
+svndiff()
+{
+    svn diff "${@}" | colordiff
+}
+
+JAVA_HOME=~/Downloads/jdk1.7.0_01/
+export JAVA_HOME
