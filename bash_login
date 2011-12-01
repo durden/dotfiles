@@ -1,36 +1,13 @@
-PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Users/durden/Documents/code/bin
-
-# Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
-
 PS1="\[[\e[35;40m\]\u@\[\e[33;40m\]\h:\[\e[32;40m\]\w\[\e[35;40m\]\[\e[0m\]] $ "
 alias ls='ls -G'
 alias ll='ls -al'
 
-VIRTUALENV_DIR="/Users/durden/.virtualenvs"
+# virtualenv
+VIRTUALENV_DIR="/home/lukelee/.virtualenvs"
 export VIRTUALENV_DIR
-
-##
-# Your previous /Users/durden/.bash_login file was backed up as /Users/durden/.bash_login.macports-saved_2009-12-31_at_08:33:12
-##
-
-# MacPorts Installer addition on 2009-12-31_at_08:33:12: adding an appropriate PATH variable for use with MacPorts.
-#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+export WORKON_HOME=$VIRTUAL_ENV_DIR
+source /usr/local/bin/virtualenvwrapper.sh 
 
 source /opt/local/etc/bash_completion.d/git-completion.bash
 
-[[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"  # This loads RVM into a shell session.
-
-# virtualenv
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh 
-
-# Setting PATH for MacPython 2.6
-# The orginal version is saved in .bash_login.pysave
-#PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
-export PATH
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_login.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
