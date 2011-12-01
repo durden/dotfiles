@@ -11,9 +11,10 @@ set nu
 colorscheme desert
 set ruler
 set hls
-set guifont=Inconsolata:h14
-"filetype on
-"filetype plugin on
+set guifont=Inconsolata:Medium:9
+
+filetype on
+filetype plugin indent on
 
 " Keep backup files in one location so their easier to find
 set backupdir=~/.vim-tmp
