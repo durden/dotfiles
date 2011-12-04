@@ -15,3 +15,6 @@ map <Leader>btn :browse tabnew<CR>
 
 " Shortcut for opening new tab with file
 map <Leader>tn :tabnew
+
+map <C-Up> :tabnext<CR>
+map <C-Down> :tabprev<CR>
