@@ -11,7 +11,7 @@ set nu
 colorscheme desert
 set ruler
 set hls
-set guifont=Inconsolata:h14
+set guifont=Inconsolata:h12
 "filetype on
 "filetype plugin on
 
