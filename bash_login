@@ -6,6 +6,9 @@ PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 alias ls='ls -G'
 alias ll='ls -al'
 
+# Switch between linux/mac
+alias gvim='mvim'
+
 VIRTUALENV_DIR="/Users/durden/.virtualenvs"
 export VIRTUALENV_DIR
 
