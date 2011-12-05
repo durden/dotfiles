@@ -1,4 +1,4 @@
-PS1="\[[\e[35;1m\]\u@\[\e[33;1m\]\h:\[\e[32;1m\]\w\[\e[35;1m\]\[\e[0m\]] $ "
+PS1="\[[\e[32;1m\]\w\[\e[35;1m\]\[\e[0m\]] $ "
 
 alias ls='ls --color=auto'
 alias ll='ls -alF'
@@ -11,7 +11,13 @@ alias rm='rm -i'
 
 # Avoid gvim 7.3 error in ubuntu
 # https://bugs.launchpad.net/ubuntu/+source/vim/+bug/771810
-alias gvim='gvim -f'
+myvim()
+{
+    /usr/bin/gvim -f "$@" 2> /dev/null & true;
+}
+
+# Can't use gvim as name of above wrapper
+alias gvim=myvim
 
 # virtualenv
 VIRTUALENV_DIR="/home/lukelee/.virtualenvs"
