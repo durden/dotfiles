@@ -2,9 +2,12 @@ PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Use
 
 # Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
 
-PS1="\[[\e[35;40m\]\u@\[\e[33;40m\]\h:\[\e[32;40m\]\w\[\e[35;40m\]\[\e[0m\]] $ "
+PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 alias ls='ls -G'
 alias ll='ls -al'
+
+# Switch between linux/mac
+alias gvim='mvim'
 
 VIRTUALENV_DIR="/Users/durden/.virtualenvs"
 export VIRTUALENV_DIR
