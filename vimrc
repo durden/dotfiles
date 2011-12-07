@@ -62,4 +62,9 @@ map <S-Enter> O<Esc>
 " Insert new line below current without leaving command mode
 map <CR> o<Esc>
 
+" Insert the currently yanked text onto a new line above
+map <Leader>P <S-Enter>P
+
+" Insert the currently yanked text onto a new line below
+map <Leader>p <CR>p
 "---------------------------------- PLUGINS ----------------------------------
