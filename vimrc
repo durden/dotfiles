@@ -13,6 +13,8 @@ set ruler
 set hls
 set guifont=Inconsolata:Medium:9
 
+call pathogen#infect()
+
 filetype on
 filetype plugin indent on
 
@@ -44,7 +46,7 @@ inoremap kk <Esc>
 map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Run pep8 plugin on current file
-map <Leader>pep :call Pep8()<CR>
+let g:pep8_map='<Leader>pep'
 
 " Turn on relative line numbering, for easy copy/paste of chunks of lines
 map <Leader>rel :set relativenumber<CR>
