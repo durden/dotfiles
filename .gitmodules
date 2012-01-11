@@ -19,6 +19,3 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "vim/bundle/VimPdb"]
-	path = vim/bundle/VimPdb
-	url = https://github.com/vim-scripts/VimPdb.git
