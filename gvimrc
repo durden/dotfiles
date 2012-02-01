@@ -1,5 +1,6 @@
-set lines=90
+set lines=999
 set columns=90
+set guiheadroom=80
 set colorcolumn=80
 
 filetype on
