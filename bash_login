@@ -31,6 +31,14 @@ alias gcl='git clone'
 
 alias rm='rm -i'
 
+# Fun git shortcuts/stats snatched from various places online
+gitimpact()
+{
+    /usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
+}
+
+alias gi=gitimpact
+
 # Avoid gvim 7.3 error in ubuntu
 # https://bugs.launchpad.net/ubuntu/+source/vim/+bug/771810
 myvim()
