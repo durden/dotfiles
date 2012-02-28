@@ -40,6 +40,20 @@ gitimpact()
 
 alias gi=gitimpact
 
+# Completely remove a file from all history in a git repo
+whack_file() {
+    file = $1
+
+    git filter-branch --index-filter 'git rm --cached --ignore-unmatch $file' --prune-empty -- --all
+    git push origin master --force
+    rm -rf .git/refs/original/
+    git reflog expire --expire=now --all
+    git gc --prune=now
+    git gc --aggressive --prune=now
+}
+
+alias gwhackfile=whack_file
+
 # Avoid gvim 7.3 error in ubuntu
 # https://bugs.launchpad.net/ubuntu/+source/vim/+bug/771810
 myvim()
