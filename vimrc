@@ -12,8 +12,11 @@ colorscheme desert
 set ruler
 set hls
 set guifont=Inconsolata:h12
-"filetype on
-"filetype plugin on
+
+call pathogen#infect()
+
+filetype on
+filetype plugin indent on
 
 " Turn on completion for python since it's included in vim 7.3
 autocmd FileType python runtime! autoload/pythoncomplete.vim
@@ -42,7 +45,7 @@ inoremap kk <Esc>
 map <Leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Run pep8 plugin on current file
-map <Leader>pep :call Pep8()<CR>
+let g:pep8_map='<Leader>pep'
 
 " Turn on relative line numbering, for easy copy/paste of chunks of lines
 map <Leader>rel :set relativenumber<CR>
