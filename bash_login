@@ -1,20 +1,10 @@
-PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Users/durden/Documents/code/bin
-
-# Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
-
 PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 alias ls='ls -G'
-alias ll='ls -al'
+alias ll='ls -alF'
+alias la='ls -A'
 
 # Switch between linux/mac
 alias gvim='mvim'
-
-VIRTUALENV_DIR="/Users/durden/.virtualenvs"
-export VIRTUALENV_DIR
-
-##
-# Your previous /Users/durden/.bash_login file was backed up as /Users/durden/.bash_login.macports-saved_2009-12-31_at_08:33:12
-##
 
 # Git aliases
 alias ga='git add'
@@ -32,13 +22,16 @@ alias grr='git remote rm'
 alias gpu='git pull'
 alias gcl='git clone'
 
-# MacPorts Installer addition on 2009-12-31_at_08:33:12: adding an appropriate PATH variable for use with MacPorts.
-#export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
+alias gen_tags='ctags -R -o mytags .'
+alias rm='rm -i'
 
-source /opt/local/etc/bash_completion.d/git-completion.bash
+# Fun git shortcuts/stats snatched from various places online
+gitimpact()
+{
+    /usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
+}
 
-[[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+alias gi=gitimpact
 
 # Completely remove a file from all history in a git repo
 whack_file() {
@@ -50,26 +43,24 @@ whack_file() {
     git reflog expire --expire=now --all
     git gc --prune=now
     git gc --aggressive --prune=now
-#
-# Fun git shortcuts/stats snatched from various places online
-gitimpact()
-{
-    /usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
 }
 
-alias gi=gitimpact
 alias gwhackfile=whack_file
 
-# virtualenv
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh 
+# This loads RVM into a shell session
+[[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"
 
-# Setting PATH for MacPython 2.6
-# The orginal version is saved in .bash_login.pysave
-#PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
-export PATH
+source /opt/local/etc/bash_completion.d/git-completion.bash
+
+# virtualenv
+VIRTUALENV_DIR="/Users/durden/.virtualenvs"
+export VIRTUALENV_DIR
+export WORKON_HOME=$VIRTUALENV_DIR
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
+PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Users/durden/Documents/code/bin
 
 # Setting PATH for Python 2.7
-# The orginal version is saved in .bash_login.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
