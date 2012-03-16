@@ -20,7 +20,7 @@ filetype plugin indent on
 
 " Turn on completion for python since it's included in vim 7.3
 autocmd FileType python runtime! autoload/pythoncomplete.vim
-"
+
 " Keep backup files in one location so their easier to find
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
