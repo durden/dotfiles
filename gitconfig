@@ -8,3 +8,5 @@
 	email = durdenmisc@gmail.com
 [github]
 	user = durden
+[core]
+	whitespace = cr-at-eol
