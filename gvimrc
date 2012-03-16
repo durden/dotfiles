@@ -19,7 +19,6 @@ map <Leader>cp "+gP
 map <Leader>cy "+y
 
 " Shortcut for opening new tab with file
-map <Leader>tn :tabnew
-
+map <Leader>tn :tabnew<CR>
 map <C-Up> :tabnext<CR>
 map <C-Down> :tabprev<CR>
