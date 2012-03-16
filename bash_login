@@ -50,8 +50,14 @@ whack_file() {
     git reflog expire --expire=now --all
     git gc --prune=now
     git gc --aggressive --prune=now
+#
+# Fun git shortcuts/stats snatched from various places online
+gitimpact()
+{
+    /usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
 }
 
+alias gi=gitimpact
 alias gwhackfile=whack_file
 
 # virtualenv
