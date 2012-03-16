@@ -17,11 +17,10 @@ set guifont=Inconsolata:h12
 
 " Turn on completion for python since it's included in vim 7.3
 autocmd FileType python runtime! autoload/pythoncomplete.vim
-"
+
 " Keep backup files in one location so their easier to find
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
-
 
 "------------------------------- SPACING -------------------------------------
 set tw=79       " tab width
@@ -70,4 +69,16 @@ map <Leader>P <S-Enter>P
 
 " Insert the currently yanked text onto a new line below
 map <Leader>p <CR>p
+
 "---------------------------------- PLUGINS ----------------------------------
+
+" Use gundo to look at local file change tree
+map <Leader>g :GundoToggle<CR>
+
+" Jump back in the tag stack with this instead of CTRL-T b/c other plugins like
+" ctrlp remaps this already
+map <Leader>pt :pop<CR>
+
+" Don't let pyflakes use the quickfix window b/c it breaks it when you try to
+" navigate pep8 (or other things)
+let g:pyflakes_use_quickfix = 0
