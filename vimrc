@@ -72,7 +72,6 @@ map <Leader>P <S-Enter>P
 
 " Insert the currently yanked text onto a new line below
 map <Leader>p <CR>p
-
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
