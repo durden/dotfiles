@@ -25,6 +25,8 @@ alias gcl='git clone'
 alias gen_tags='ctags -R -o mytags .'
 alias rm='rm -i'
 
+alias ipy='ipython'
+
 # Fun git shortcuts/stats snatched from various places online
 gitimpact()
 {
