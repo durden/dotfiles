@@ -87,3 +87,12 @@ map <Leader>pt :pop<CR>
 " Don't let pyflakes use the quickfix window b/c it breaks it when you try to
 " navigate pep8 (or other things)
 let g:pyflakes_use_quickfix = 0
+
+" Python-mode settings
+" Disable automatic code folding
+let g:pymode_folding = 0
+
+" Don't run lint on all saves
+let g:pymode_lint_write = 0
+
+let g:pymode_utils_whitespaces = 0
