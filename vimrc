@@ -95,4 +95,5 @@ let g:pymode_folding = 0
 " Don't run lint on all saves
 let g:pymode_lint_write = 0
 
+" Don't automatically remove all trailing whitespace
 let g:pymode_utils_whitespaces = 0
