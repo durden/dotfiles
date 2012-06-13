@@ -27,6 +27,7 @@ alias gen_tags='ctags -R -o mytags .'
 alias rm='rm -i'
 
 alias ipy='ipython'
+alias pyclean='find . -name "*.pyc" -exec rm -r {} \;'
 
 # Fun git shortcuts/stats snatched from various places online
 gitimpact()
