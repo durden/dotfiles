@@ -10,3 +10,7 @@
 	user = durden
 [core]
 	whitespace = cr-at-eol
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status -sb
+	today = whatchanged --since=\"yesterday\" --format=oneline
