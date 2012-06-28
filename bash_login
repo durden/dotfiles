@@ -1,4 +1,11 @@
 PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
+
+# Use vi mode for readline
+# Default is to be in insert mode, hit escape to go to command mode and then
+# you can use movement characters from vi: j, h, k, l, b, w, B, W, 0, $, etc.
+set -o vi
+
+
 alias ls='ls -G'
 alias ll='ls -alF'
 alias la='ls -A'
