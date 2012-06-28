@@ -39,7 +39,11 @@ alias pyclean='find . -name "*.pyc" -exec rm -r {} \;'
 # Fun git shortcuts/stats snatched from various places online
 gitimpact()
 {
-    /usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'
+    res=`/usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
+    added=`echo $res | cut -d, -f1 | cut -d+ -f2`
+    removed=`echo $res | cut -d, -f2 | cut -d- -f2`
+    net=`expr $added - $removed`
+    echo "Net: $net (Added: $added Removed: $removed)"
 }
 
 alias gi=gitimpact
