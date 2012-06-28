@@ -43,6 +43,16 @@ gitimpact()
 
 alias gi=gitimpact
 
+# Short cut to get pretty view of what commits in current branch are NOT yet
+# in remote svn repo, aka what will be pushed with a git svn dcommit cmd
+gitsvnpushed()
+{
+    commits=`git svn dcommit --dry-run | wc -l`
+    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$commits "$@"
+}
+
+alias gsd=gitsvnpushed
+
 # Completely remove a file from all history in a git repo
 whack_file() {
     file = $1
