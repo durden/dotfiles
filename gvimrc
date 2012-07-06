@@ -26,4 +26,6 @@ map <Leader>tn :tabnew<CR>
 
 map <C-Up> :tabnext<CR>
 map <C-Down> :tabprev<CR>
+
 map <S-T> :tabnext<CR>
+map <C-S-T> :tabprev<CR>
