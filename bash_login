@@ -56,6 +56,19 @@ gitsvnpushed()
     git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$commits "$@"
 }
 
+# Shortcut to get summary of what will be pushed to svn on next dcommit
+gitsvndiffstats()
+{
+    commits=`git svn dcommit --dry-run | wc -l`
+    res=`/usr/bin/git log -n$commits --numstat --pretty="%H" "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
+    added=`echo $res | cut -d, -f1 | cut -d+ -f2`
+    removed=`echo $res | cut -d, -f2 | cut -d- -f2`
+    net=`expr $added - $removed`
+    echo "Net: $net (Added: $added Removed: $removed)"
+}
+
+alias gss=gitsvndiffstats
+
 # Completely remove a file from all history in a git repo
 whack_file() {
     file = $1
