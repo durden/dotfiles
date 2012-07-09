@@ -52,6 +52,11 @@ alias gi=gitimpact
 gitsvnpushed()
 {
     commits=`git svn dcommit --dry-run | wc -l`
+
+    # By default we are showing the last commit that WAS committed
+    pushed_commits=`expr $commits - 1`
+
+    echo "$pushed_commits commits to be pushed"
     git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$commits "$@"
 }
 
