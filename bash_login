@@ -70,7 +70,11 @@ gitsvndiffstats()
     added=`echo $res | cut -d, -f1 | cut -d+ -f2`
     removed=`echo $res | cut -d, -f2 | cut -d- -f2`
     net=`expr $added - $removed`
-    echo "Net: $net (Added: $added Removed: $removed)"
+
+    # By default we are showing the last commit that WAS committed
+    pushed_commits=`expr $commits - 1`
+
+    echo "Net: $net (Added: $added Removed: $removed) -- $pushed_commits commits"
 }
 
 alias gss=gitsvndiffstats
