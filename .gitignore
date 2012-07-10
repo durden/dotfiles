@@ -1,1 +1,7 @@
-gitignore
+*.DS_Store
+*.pyc
+*.swp
+*.db
+VimballRecord
+tags
+*.netrwhist

@@ -73,16 +73,19 @@ alias gwhackfile=whack_file
 # This loads RVM into a shell session
 [[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"
 
-source /opt/local/etc/bash_completion.d/git-completion.bash
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+PATH=/usr/local/share/python:/Applications:/Users/durden/Documents/code/bin:$PATH
 
 # virtualenv
 VIRTUALENV_DIR="/Users/durden/.virtualenvs"
+VIRTUALENVWRAPPER_PYTHON=/usr/local/Cellar/python/2.7.3/bin/python
+export VIRTUALENVWRAPPER_PYTHON
 export VIRTUALENV_DIR
 export WORKON_HOME=$VIRTUALENV_DIR
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Git path currently using 1.7.3, but 1.6.2.1 is at /opt/git/bin
-PATH=$PATH:/Applications:/usr/local/git/bin:/Users/durden/.gem/ruby/1.8/bin:/Users/durden/Documents/code/bin
+source /usr/local/share/python/virtualenvwrapper.sh
 
 # Setting PATH for Python 2.7
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
