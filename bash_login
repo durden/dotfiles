@@ -60,6 +60,7 @@ gitsvnpushed()
     echo "$pushed_commits commits to be pushed"
 
     git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$commits "$@"
+    gitsvndiffstats
 }
 
 # Shortcut to get summary of what will be pushed to svn on next dcommit
