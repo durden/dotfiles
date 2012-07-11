@@ -54,12 +54,12 @@ gitsvnpushed()
 {
     commits=`git svn dcommit --dry-run | wc -l`
 
-    # By default we are showing the last commit that WAS committed
+    # Output has one line of header information
     pushed_commits=`expr $commits - 1`
 
     echo "$pushed_commits commits to be pushed"
 
-    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$commits "$@"
+    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$pushed_commits "$@"
     gitsvndiffstats
 }
 
@@ -67,13 +67,14 @@ gitsvnpushed()
 gitsvndiffstats()
 {
     commits=`git svn dcommit --dry-run | wc -l`
-    res=`/usr/bin/git log -n$commits --numstat --pretty="%H" "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
+
+    # Output has one line of header information
+    pushed_commits=`expr $commits - 1`
+
+    res=`/usr/bin/git log -n$pushed_commits --numstat --pretty="%H" "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
     added=`echo $res | cut -d, -f1 | cut -d+ -f2`
     removed=`echo $res | cut -d, -f2 | cut -d- -f2`
     net=`expr $added - $removed`
-
-    # By default we are showing the last commit that WAS committed
-    pushed_commits=`expr $commits - 1`
 
     echo "Net: $net (Added: $added Removed: $removed) -- $pushed_commits commits"
 }
