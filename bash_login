@@ -115,3 +115,9 @@ source /usr/local/share/python/virtualenvwrapper.sh
 # Setting PATH for Python 2.7
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
+
+NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
+export NODE_PATH
+
+# Non-homebrew python path
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
