@@ -119,5 +119,9 @@ export PATH
 NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
 export NODE_PATH
 
+# Put homebrew apps before standard OS X
+PATH=/usr/local/bin:$PATH
+export PATH
+
 # Non-homebrew python path
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
