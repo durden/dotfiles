@@ -84,3 +84,6 @@ map <Leader>pt :pop<CR>
 " Don't let pyflakes use the quickfix window b/c it breaks it when you try to
 " navigate pep8 (or other things)
 let g:pyflakes_use_quickfix = 0
+
+" Show current file in Marked.app
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
