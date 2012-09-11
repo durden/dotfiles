@@ -96,11 +96,23 @@ whack_file() {
 
 alias gwhackfile=whack_file
 
+# Spell check given files in directory recursively
+ 
+spellcheck() {
+    find . -iname "$1" -exec aspell -c {} \;
+}
+
 # Avoid gvim 7.3 error in ubuntu
 # https://bugs.launchpad.net/ubuntu/+source/vim/+bug/771810
 myvim()
 {
     /usr/bin/gvim -f "$@" 2> /dev/null & true;
+}
+
+# Spell check given files in directory recursively
+
+spellcheck() {
+    find . -iname "$1" -exec aspell -c {} \;
 }
 
 # Can't use gvim as name of above wrapper
