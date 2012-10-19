@@ -16,6 +16,10 @@ alias la='ls -A'
 
 # Switch between linux/mac
 alias gvim='mvim'
+alias ev="gvim -p $@"
+
+alias ack='ack-grep'
+alias oack='ack -l $@ | xargs gvim -p'
 
 # Git aliases
 alias ga='git add'
