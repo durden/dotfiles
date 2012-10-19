@@ -97,3 +97,11 @@ let g:pymode_lint_write = 0
 
 " Don't automatically remove all trailing whitespace
 let g:pymode_utils_whitespaces = 0
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+" http://stackoverflow.com/questions/3105307/how-do-you-automatically-remove
+" -the-preview-window-after-autocompletion-in-vim
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
