@@ -13,6 +13,8 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 
+alias ev="gvim -p $@"
+
 alias ack='ack-grep'
 alias oack='ack -l $@ | xargs gvim -p'
 
