@@ -72,6 +72,10 @@ map <Leader>P <S-Enter>P
 
 " Insert the currently yanked text onto a new line below
 map <Leader>p <CR>p
+
+" Show current file in Marked.app
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree

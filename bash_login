@@ -99,6 +99,12 @@ whack_file() {
 
 alias gwhackfile=whack_file
 
+# Spell check given files in directory recursively
+
+spellcheck() {
+    find . -iname "$1" -exec aspell -c {} \;
+}
+
 # This loads RVM into a shell session
 [[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"
 
