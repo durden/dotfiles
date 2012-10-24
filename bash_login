@@ -58,7 +58,13 @@ alias gi=gitimpact
 gitsvnpushed()
 {
     # Stash anything that we currently have outstanding
-    git stash -q
+    stashed=0
+    if [ ! -z "`git diff --shortstat`" ]; then
+        echo 'STASHED'
+        stashed=1
+        git stash -q
+    fi
+
     commits=`git svn dcommit --dry-run | wc -l`
 
     # Output has one line of header information
@@ -70,7 +76,10 @@ gitsvnpushed()
     gitsvndiffstats
 
     # Get local changes back
-    git stash pop -q
+    if [ $stashed -eq 1 ]; then
+        echo 'UNSTASHED'
+        git stash pop -q
+    fi
 }
 
 alias gsd=gitsvnpushed
