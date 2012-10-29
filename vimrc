@@ -106,3 +106,7 @@ let g:pymode_utils_whitespaces = 0
 " -the-preview-window-after-autocompletion-in-vim
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Ignore project_files/ for ctrl-p
+set wildignore+=*/project_files/*
+set wildignore+=*/.ropeproject/*
