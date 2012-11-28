@@ -135,6 +135,11 @@ spellcheck() {
     find . -iname "$1" -exec aspell -c {} \;
 }
 
+# List largest files/directories recursively in cwd
+largest_stuff() {
+    du -h | sort -hr | head
+}
+
 # Can't use gvim as name of above wrapper
 alias gvim=myvim
 
