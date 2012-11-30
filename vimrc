@@ -72,6 +72,10 @@ map <Leader>P <S-Enter>P
 
 " Insert the currently yanked text onto a new line below
 map <Leader>p <CR>p
+
+" Show current file in Marked.app
+:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
@@ -85,5 +89,24 @@ map <Leader>pt :pop<CR>
 " navigate pep8 (or other things)
 let g:pyflakes_use_quickfix = 0
 
-" Show current file in Marked.app
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+" Python-mode settings
+" Disable automatic code folding
+let g:pymode_folding = 0
+
+" Don't run lint on all saves
+let g:pymode_lint_write = 0
+
+" Don't automatically remove all trailing whitespace
+let g:pymode_utils_whitespaces = 0
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+" http://stackoverflow.com/questions/3105307/how-do-you-automatically-remove
+" -the-preview-window-after-autocompletion-in-vim
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Ignore project_files/ for ctrl-p
+set wildignore+=*/project_files/*
+set wildignore+=*/.ropeproject/*

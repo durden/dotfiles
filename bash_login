@@ -1,5 +1,9 @@
 PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 
+# Beef up the history
+HISTFILESIZE=1000000000
+HISTSIZE=1000000
+
 # Use vi mode for readline
 # Default is to be in insert mode, hit escape to go to command mode and then
 # you can use movement characters from vi: j, h, k, l, b, w, B, W, 0, $, etc.
@@ -12,6 +16,10 @@ alias la='ls -A'
 
 # Switch between linux/mac
 alias gvim='mvim'
+alias ev="gvim -p $@"
+
+alias ack='ack-grep'
+alias oack='ack -l $@ | xargs gvim -p'
 
 # Git aliases
 alias ga='git add'
@@ -52,6 +60,14 @@ alias gi=gitimpact
 # in remote svn repo, aka what will be pushed with a git svn dcommit cmd
 gitsvnpushed()
 {
+    # Stash anything that we currently have outstanding
+    stashed=0
+    if [ ! -z "`git diff --shortstat`" ]; then
+        echo 'STASHED'
+        stashed=1
+        git stash -q
+    fi
+
     commits=`git svn dcommit --dry-run | wc -l`
 
     # Output has one line of header information
@@ -61,6 +77,12 @@ gitsvnpushed()
 
     git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$pushed_commits "$@"
     gitsvndiffstats
+
+    # Get local changes back
+    if [ $stashed -eq 1 ]; then
+        echo 'UNSTASHED'
+        git stash pop -q
+    fi
 }
 
 # Shortcut to get summary of what will be pushed to svn on next dcommit
@@ -99,6 +121,11 @@ alias gwhackfile=whack_file
 
 spellcheck() {
     find . -iname "$1" -exec aspell -c {} \;
+}
+
+# List largest files/directories recursively in cwd
+largest_stuff() {
+    du -h | sort -hr | head
 }
 
 # This loads RVM into a shell session
