@@ -76,6 +76,12 @@ map <Leader>p <CR>p
 " Show current file in Marked.app
 :nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
 
+" Enable 'pretty paste' mode when copying with mouse to avoid crazy indentation
+map <Leader>mp :set paste<CR>
+
+" Disable 'pretty paste' mode so auto-indent works again
+map <Leader>nmp :set nopaste<CR>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
