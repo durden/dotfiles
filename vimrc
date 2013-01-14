@@ -82,6 +82,12 @@ map <Leader>mp :set paste<CR>
 " Disable 'pretty paste' mode so auto-indent works again
 map <Leader>nmp :set nopaste<CR>
 
+" Toggle syntax checking (it can be slow on files with lots of python imports)
+map <Leader>tsc :SyntasticToggleMode<CR>
+
+" Force check of syntax
+map <Leader>fsc :SyntasticCheck<CR>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree

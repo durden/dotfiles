@@ -1,3 +1,14 @@
+BASEDIR="/Users/durden/Dropbox/dotfiles"
+
+# Aliases
+source $BASEDIR/aliases.sh
+
+# Setup PATH
+source $BASEDIR/path.sh
+
+# Setup Python virtualenv
+source $BASEDIR/virtualenv_path.sh
+
 PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 
 # Beef up the history
@@ -9,152 +20,23 @@ HISTSIZE=1000000
 # you can use movement characters from vi: j, h, k, l, b, w, B, W, 0, $, etc.
 set -o vi
 
-
-alias ls='ls -G'
-alias ll='ls -alF'
-alias la='ls -A'
-
-# Switch between linux/mac
-alias gvim='mvim'
-alias ev="gvim -p $@"
-
-alias ack='ack-grep'
-alias oack='ack -l $@ | xargs gvim -p'
-
-# Git aliases
-alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gm='git commit -m'
-alias gma='git commit -am'
-alias gb='git branch'
-alias gc='git checkout'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpu='git pull'
-alias gcl='git clone'
-alias gcount='git shortlog -sn'
-
-alias gen_tags='ctags -R -o mytags .'
-alias rm='rm -i'
-
-alias ipy='ipython'
-alias pyclean='find . -name "*.pyc" -exec rm -r {} \;'
-
-# Fun git shortcuts/stats snatched from various places online
-gitimpact()
-{
-    res=`/usr/bin/git log --numstat --pretty="%H" --author=llee "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
-    added=`echo $res | cut -d, -f1 | cut -d+ -f2`
-    removed=`echo $res | cut -d, -f2 | cut -d- -f2`
-    net=`expr $added - $removed`
-    echo "Net: $net (Added: $added Removed: $removed)"
-}
-
-alias gi=gitimpact
-
-# Short cut to get pretty view of what commits in current branch are NOT yet
-# in remote svn repo, aka what will be pushed with a git svn dcommit cmd
-gitsvnpushed()
-{
-    # Stash anything that we currently have outstanding
-    stashed=0
-    if [ ! -z "`git diff --shortstat`" ]; then
-        echo 'STASHED'
-        stashed=1
-        git stash -q
-    fi
-
-    commits=`git svn dcommit --dry-run | wc -l`
-
-    # Output has one line of header information
-    pushed_commits=`expr $commits - 1`
-
-    echo "$pushed_commits commits to be pushed"
-
-    git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n$pushed_commits "$@"
-    gitsvndiffstats
-
-    # Get local changes back
-    if [ $stashed -eq 1 ]; then
-        echo 'UNSTASHED'
-        git stash pop -q
-    fi
-}
-
-# Shortcut to get summary of what will be pushed to svn on next dcommit
-gitsvndiffstats()
-{
-    commits=`git svn dcommit --dry-run | wc -l`
-
-    # Output has one line of header information
-    pushed_commits=`expr $commits - 1`
-
-    res=`/usr/bin/git log -n$pushed_commits --numstat --pretty="%H" "$@" | awk 'NF==3 {plus+=$1; minus+=$2} END {printf("+%d, -%d\n", plus, minus)}'`
-    added=`echo $res | cut -d, -f1 | cut -d+ -f2`
-    removed=`echo $res | cut -d, -f2 | cut -d- -f2`
-    net=`expr $added - $removed`
-
-    echo "Net: $net (Added: $added Removed: $removed) -- $pushed_commits commits"
-}
-
-alias gss=gitsvndiffstats
-
-# Completely remove a file from all history in a git repo
-whack_file() {
-    file = $1
-
-    git filter-branch --index-filter 'git rm --cached --ignore-unmatch $file' --prune-empty -- --all
-    git push origin master --force
-    rm -rf .git/refs/original/
-    git reflog expire --expire=now --all
-    git gc --prune=now
-    git gc --aggressive --prune=now
-}
-
-alias gwhackfile=whack_file
-
 # Spell check given files in directory recursively
-
 spellcheck() {
     find . -iname "$1" -exec aspell -c {} \;
 }
 
 # List largest files/directories recursively in cwd
 largest_stuff() {
-    du -h | sort -hr | head
+    du -k | sort -nr | awk '
+        function human(x) {
+            s="kMGTEPYZ";
+            while (x>=1000 && length(s)>1)
+                {x/=1024; s=substr(s,2)}
+            return int(x+0.5) substr(s,1,1)
+        }
+        {gsub(/^[0-9]+/, human($1)); print}' | head
 }
-
-# This loads RVM into a shell session
-[[ -s "/Users/durden/.rvm/scripts/rvm" ]] && source "/Users/durden/.rvm/scripts/rvm"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
-
-PATH=/usr/local/share/python:/Applications:/Users/durden/Documents/code/bin:$PATH
-
-# virtualenv
-VIRTUALENV_DIR="/Users/durden/.virtualenvs"
-VIRTUALENVWRAPPER_PYTHON=/usr/local/Cellar/python/2.7.3/bin/python
-export VIRTUALENVWRAPPER_PYTHON
-export VIRTUALENV_DIR
-export WORKON_HOME=$VIRTUALENV_DIR
-source /usr/local/share/python/virtualenvwrapper.sh
-
-# Setting PATH for Python 2.7
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-
-NODE_PATH="/usr/local/lib/node_modules:${NODE_PATH}"
-export NODE_PATH
-
-# Put homebrew apps before standard OS X
-PATH=/usr/local/bin:$PATH
-export PATH
-
-# Non-homebrew python path
-#export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
