@@ -140,6 +140,17 @@ largest_stuff() {
     du -h | sort -hr | head
 }
 
+# List files with most lines (including blank lines)
+max_lines_with_blanks() {
+    # http://stackoverflow.com/questions/8488301/bash-find-file-with-max-lines-count
+    find . -name "*.py" -type f | xargs wc -l|sort -rn|grep -v ' total$'
+}
+
+max_lines_without_blanks() {
+    # http://stackoverflow.com/questions/8488301/bash-find-file-with-max-lines-count
+    find . -type f -name "*.py" -exec grep -H -c '[^[:space:]]' {} \; | sort -nr -t":" -k2
+}
+
 # Can't use gvim as name of above wrapper
 alias gvim=myvim
 
