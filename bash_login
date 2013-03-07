@@ -152,6 +152,12 @@ max_lines_without_blanks() {
     find . -type f -name "*.py" -exec grep -H -c '[^[:space:]]' {} \; | sort -nr -t":" -k2
 }
 
+# Nice shortcut for ps and grep
+psgrep() {
+    # http://mmb.pcb.ub.es/~carlesfe/unix/tricks.txt
+    ps axuf | grep -v grep | grep "$@" -i --color=auto;
+}
+
 # Can't use gvim as name of above wrapper
 alias gvim=myvim
 
