@@ -88,6 +88,8 @@ map <Leader>tsc :SyntasticToggleMode<CR>
 " Force check of syntax
 map <Leader>fsc :SyntasticCheck<CR>
 
+" Dash search
+map <Leader>d <Plug>DashSearch
 
 "---------------------------------- PLUGINS ----------------------------------
 
