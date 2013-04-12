@@ -11,6 +11,10 @@ source $BASEDIR/virtualenv_path.sh
 
 PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
 
+# Set tab title to path relative to home dir
+# http://superuser.com/questions/419775/with-bash-iterm2-how-to-name-tabs
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+
 # Beef up the history
 HISTFILESIZE=1000000000
 HISTSIZE=1000000
