@@ -42,6 +42,10 @@ alias rm='rm -i'
 alias ipy='ipython'
 alias pyclean='find . -name "*.pyc" -exec rm -r {} \;'
 
+# Turn off XON/XOFF so we can use ctrl-s for forward searching shell history
+# http://stackoverflow.com/questions/791765/unable-to-forward-search-bash-history-similarly-as-with-ctrl-r
+stty -ixon
+
 # Fun git shortcuts/stats snatched from various places online
 gitimpact()
 {

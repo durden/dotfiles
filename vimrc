@@ -29,7 +29,7 @@ set directory=~/.vim-tmp
 set tags=~/projects/git_pyqt/mytags
 
 "------------------------------- SPACING -------------------------------------
-set tw=79       " tab width
+set tw=79       " text width
 set ts=4        " tab stop
 set sw=4        " shift width
 set sts=4
