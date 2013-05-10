@@ -156,6 +156,13 @@ max_lines_without_blanks() {
     find . -type f -name "*.py" -exec grep -H -c '[^[:space:]]' {} \; | sort -nr -t":" -k2
 }
 
+slog() {
+    # Simulate git log -p with git svn log, show commit msg alongside the
+    # # diff
+    git log -p `git svn find-rev r"$1"`
+}
+
+
 # Nice shortcut for ps and grep
 psgrep() {
     # http://mmb.pcb.ub.es/~carlesfe/unix/tricks.txt
