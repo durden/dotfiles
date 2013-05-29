@@ -55,3 +55,9 @@ max_lines_without_blanks() {
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
+
+slog() {
+    # Simulate git log -p with git svn log, show commit msg alongside the
+    # # diff
+    git log -p `git svn find-rev r"$1"`
+}
