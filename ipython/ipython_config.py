@@ -27,7 +27,8 @@ c.InteractiveShellApp.extensions = [
 # c.InteractiveShellApp.code_to_run = ''
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['doctest_mode on']
+c.InteractiveShellApp.exec_lines = ['doctest_mode on',
+                                    'from pprint import pprint']
 
 # If true, an 'import *' is done from numpy and pylab, when using pylab
 # c.InteractiveShellApp.pylab_import_all = True
