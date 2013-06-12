@@ -35,6 +35,7 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
+alias gtoday='git log --reverse --oneline --since=yesterday'
 
 alias gen_tags='ctags -R -o mytags .'
 alias rm='rm -i'
