@@ -105,6 +105,9 @@ let g:pymode_lint_write = 0
 " Don't automatically remove all trailing whitespace
 let g:pymode_utils_whitespaces = 0
 
+" Don't use jedi completion automatically when hitting dot
+let g:jedi#popup_on_dot = 0
+
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
