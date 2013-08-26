@@ -103,7 +103,7 @@ map <leader>c :! codrspace_cli '%:p'<cr>
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
-map <Leader>g :GundoToggle<CR>
+map <Leader>gu :GundoToggle<CR>
 
 " Jump back in the tag stack with this instead of CTRL-T b/c other plugins like
 " ctrlp remaps this already
