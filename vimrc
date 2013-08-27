@@ -91,6 +91,10 @@ map <Leader>fsc :SyntasticCheck<CR>
 " Dash search
 map <Leader>d <Plug>DashSearch
 
+" Codrspace script
+map <leader>c :! codrspace_cli '%:p'<cr>
+
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
