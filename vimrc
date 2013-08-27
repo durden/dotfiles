@@ -82,6 +82,8 @@ map <Leader>mp :set paste<CR>
 " Disable 'pretty paste' mode so auto-indent works again
 map <Leader>nmp :set nopaste<CR>
 
+map <leader>c :! codrspace_cli '%:p'<cr>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
