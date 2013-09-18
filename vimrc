@@ -125,3 +125,5 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Ignore project_files/ for ctrl-p
 set wildignore+=*/project_files/*
 set wildignore+=*/.ropeproject/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*/.pyc
