@@ -15,6 +15,11 @@ set guifont=Inconsolata:h12
 
 call pathogen#infect()
 
+" Go-specific plugins
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+
 filetype on
 filetype plugin indent on
 

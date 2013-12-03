@@ -1,5 +1,7 @@
 BASEDIR="/Users/durden/Dropbox/dotfiles"
 
+export GOROOT="/usr/local/go/"
+
 # Aliases
 source $BASEDIR/aliases.sh
 
