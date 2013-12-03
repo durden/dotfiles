@@ -15,5 +15,8 @@ export PATH
 PATH=/Applications/Postgres.app/Contents/MacOS/bin/:$PATH
 export PATH
 
+# Go path
+PATH=$PATH:$GOROOT/bin/
+
 # Non-homebrew python path
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
