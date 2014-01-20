@@ -84,6 +84,12 @@ map <Leader>nmp :set nopaste<CR>
 
 map <leader>c :! codrspace_cli '%:p'<cr>
 
+" Toggle syntax checking (it can be slow on files with lots of python imports)
+map <Leader>tsc :SyntasticToggleMode<CR>
+
+" Force check of syntax
+map <Leader>fsc :SyntasticCheck<CR>
+
 "---------------------------------- PLUGINS ----------------------------------
 
 " Use gundo to look at local file change tree
