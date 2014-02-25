@@ -1,6 +1,6 @@
-BASEDIR="/Users/durden/Dropbox/dotfiles"
+BASEDIR="/Users/lukelee/dotfiles"
 
-export GOROOT="/usr/local/go/"
+#export GOROOT="/usr/local/go/"
 
 # Aliases
 source $BASEDIR/aliases.sh
@@ -69,3 +69,8 @@ slog() {
     # # diff
     git log -p `git svn find-rev r"$1"`
 }
+
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi

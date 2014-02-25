@@ -15,4 +15,4 @@ alias ipy='ipython'
 alias pyclean='find . -name "*.pyc" -exec rm -r {} \;'
 
 # Specific git funcs/aliases
-source `dirname "${BASH_SOURCE[0]}"`/git_aliases.sh
+source ~/dotfiles/git_aliases.sh
