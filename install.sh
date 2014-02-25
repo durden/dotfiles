@@ -23,3 +23,5 @@ for file in `ls`; do
     echo "Linking $src to $link_name"
     ln -s $src ~/.$file
 done
+
+mkdir ~/.vim-tmp
