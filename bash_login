@@ -58,6 +58,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+linecount_git() {
+    # http://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repository
+    git ls-files | xargs wc -l
+}
+
+
 slog() {
     # Simulate git log -p with git svn log, show commit msg alongside the
     # # diff
