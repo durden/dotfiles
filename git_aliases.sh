@@ -116,3 +116,4 @@ alias gcl='git clone'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 alias gtoday='git log --reverse --oneline --since=yesterday'
+alias glg="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
