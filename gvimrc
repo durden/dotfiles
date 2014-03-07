@@ -29,3 +29,7 @@ map <C-Down> :tabprev<CR>
 
 map <S-T> :tabnext<CR>
 map <C-S-T> :tabprev<CR>
+
+" Map warnings for syntastic to something easier to see with the desert theme
+" Use :highlight to see available colors and highlight groups
+highlight link SyntasticWarning SpellLocal
