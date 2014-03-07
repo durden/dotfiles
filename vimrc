@@ -139,3 +139,23 @@ set wildignore+=*/project_files/*
 set wildignore+=*/.ropeproject/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*/.pyc
+
+"---------------------------------- VIRTUALENV -------------------------------
+" Taken from:
+" https://groups.google.com/forum/#!topic/vim-syntastic/6Nd6Om_KKcE
+"
+if has("python") && !empty($VIRTUAL_ENV)
+python << EOF
+import os
+import sys
+
+a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
+
+execfile(a, dict(__file__ = a))
+
+if 'PYTHONPATH' not in os.environ:
+    os.environ['PYTHONPATH'] = ''
+    os.environ['PYTHONPATH'] += ":" + os.getcwd()
+    os.environ['PYTHONPATH'] += ":".join(sys.path)
+EOF
+endif
