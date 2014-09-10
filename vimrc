@@ -8,7 +8,7 @@ set incsearch   " incremental search
 set wildmenu    " Additional help when tabbing directories, etc.
 syntax on
 set nu
-colorscheme desert
+colorscheme slate
 set ruler
 set hls
 set guifont=Inconsolata:h12
