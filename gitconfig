@@ -11,6 +11,7 @@
 [core]
 	whitespace = cr-at-eol
 	editor = /usr/bin/vim
+	autocrlf = input
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	st = status -sb
