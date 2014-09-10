@@ -1,4 +1,4 @@
-PATH=/Applications:/Users/durden/Documents/code/bin:$PATH
+PATH=/Applications:/Users/lukelee/Documents/code/bin:$PATH
 
 # Setting PATH for Python 2.7
 #PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
@@ -10,6 +10,9 @@ PATH=/Applications:/Users/durden/Documents/code/bin:$PATH
 # Put homebrew apps before standard OS X
 PATH=/usr/local/bin:$PATH
 export PATH
+
+# Python anaconda
+PATH=$PATH:/Users/lukelee/anaconda/bin
 
 # Local postgres.app
 #PATH=/Applications/Postgres.app/Contents/MacOS/bin/:$PATH
