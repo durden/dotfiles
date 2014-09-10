@@ -153,6 +153,10 @@ a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
 
 execfile(a, dict(__file__ = a))
 
+# Hack b/c not sure why the virtual env doesn't correctly set this python up
+correct_python = '%s/lib/python27.zip' % (os.environ['VIRTUAL_ENV'])
+sys.path.insert(0, correct_python)
+
 if 'PYTHONPATH' not in os.environ:
     os.environ['PYTHONPATH'] = ''
     os.environ['PYTHONPATH'] += ":" + os.getcwd()
