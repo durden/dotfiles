@@ -6,7 +6,11 @@ alias la='ls -A'
 alias gvim='mvim'
 alias ev="gvim -p $@"
 
-alias oack='ack -l $@ | xargs gvim -p'
+# Better version of this is provided via viack as mentioned below
+sack() {
+    search_text="$@"
+    ack -l --print0 "$search_text" | xargs -0 mvim -p +/"$search_text"
+}
 
 alias gen_tags='ctags -R -o mytags .'
 alias rm='rm -i'
