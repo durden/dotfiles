@@ -64,3 +64,6 @@ slog() {
     # # diff
     git log -p `git svn find-rev r"$1"`
 }
+
+# Load fzf search extension for ctrl-r
+source ~/.fzf.bash
