@@ -97,7 +97,7 @@ map <Leader>fsc :SyntasticCheck<CR>
 map <Leader>d <Plug>DashSearch
 
 " Codrspace script
-map <leader>c :! codrspace_cli '%:p'<cr>
+map <leader>c :! codrspace_import '%:p'<cr>
 
 
 "---------------------------------- PLUGINS ----------------------------------
