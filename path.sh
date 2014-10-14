@@ -17,6 +17,7 @@ export PATH
 
 # Go path
 PATH=$PATH:$GOROOT/bin/
+PATH=$PATH:$GOPATH/bin/
 
 # Non-homebrew python path
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH

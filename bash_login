@@ -1,6 +1,7 @@
 BASEDIR="/Users/durden/Dropbox/dotfiles"
 
 export GOROOT="/usr/local/go/"
+export GOPATH="/Users/durden/Dropbox/code/all/go"
 
 # Aliases
 source $BASEDIR/aliases.sh
