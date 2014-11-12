@@ -6,6 +6,8 @@ alias la='ls -A'
 alias gvim='mvim'
 alias ev="gvim -p $@"
 
+alias hdfview='/Applications/HDFView.app/Contents/MacOS/HDFView'
+
 # Better version of this is provided via viack as mentioned below
 sack() {
     search_text="$@"
