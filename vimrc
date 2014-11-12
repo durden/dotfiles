@@ -55,7 +55,7 @@ let g:pep8_map='<Leader>pep'
 " Turn on relative line numbering, for easy copy/paste of chunks of lines
 map <Leader>rel :set relativenumber<CR>
 " Turn off relative line numbering
-map <Leader>nrel :set nu<CR>
+map <Leader>nrel :set norelativenumber<CR>
 
 " Hide search highlighted text
 map <Leader> :nohl<CR>
