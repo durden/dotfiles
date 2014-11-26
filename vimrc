@@ -13,7 +13,16 @@ set ruler
 set hls
 set guifont=Inconsolata:h12
 
+" Always show status line
+set laststatus=2
+
+"---------------------------------- VIRTUALENV -------------------------------
+
+let g:virtualenv_stl_format = '[%n]'
+let g:virtualenv_auto_activate=1
+
 call pathogen#infect()
+
 
 " Go-specific plugins
 filetype off
@@ -139,27 +148,3 @@ set wildignore+=*/project_files/*
 set wildignore+=*/.ropeproject/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*/.pyc
-
-"---------------------------------- VIRTUALENV -------------------------------
-" Taken from:
-" https://groups.google.com/forum/#!topic/vim-syntastic/6Nd6Om_KKcE
-"
-if has("python") && !empty($VIRTUAL_ENV)
-python << EOF
-import os
-import sys
-
-a = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
-
-execfile(a, dict(__file__ = a))
-
-# Hack b/c not sure why the virtual env doesn't correctly set this python up
-correct_python = '%s/lib/python27.zip' % (os.environ['VIRTUAL_ENV'])
-sys.path.insert(0, correct_python)
-
-if 'PYTHONPATH' not in os.environ:
-    os.environ['PYTHONPATH'] = ''
-    os.environ['PYTHONPATH'] += ":" + os.getcwd()
-    os.environ['PYTHONPATH'] += ":".join(sys.path)
-EOF
-endif
