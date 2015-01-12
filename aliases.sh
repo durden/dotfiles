@@ -6,7 +6,19 @@ alias la='ls -A'
 alias gvim='mvim'
 alias ev="gvim -p $@"
 
-alias hdfview='/Applications/HDFView.app/Contents/MacOS/HDFView'
+hdfview() {
+    # Stupid Java app won't take arguments and right-clicking on a file doesn't
+    # seem to want to open the file. So, display the full path so it's easy to
+    # cut and paste in app after opening.
+    path=`pwd`
+    name="$1"
+    filename="$path/$name"
+    echo "$filename"
+
+    # Copy name without newline
+    echo "$filename" | tr -d '\n' | pbcopy
+    /Applications/HDFView.app/Contents/MacOS/HDFView &
+}
 
 # Better version of this is provided via viack as mentioned below
 sack() {
