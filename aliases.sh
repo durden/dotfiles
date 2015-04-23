@@ -30,7 +30,7 @@ alias gen_tags='ctags -R -o mytags .'
 alias rm='rm -i'
 
 alias ipy='ipython'
-alias pyclean='find . -name "*.pyc" -o -name "__pyclean__" -exec rm -r {} \;'
+alias pyclean='find . -name "*.pyc" -o -name "__pycache__" -exec rm -r {} \;'
 
 # Specific git funcs/aliases
 source ~/dotfiles/git_aliases.sh
