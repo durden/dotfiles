@@ -67,5 +67,19 @@ slog() {
     git log -p `git svn find-rev r"$1"`
 }
 
+recent_notes() {
+    echo "Work notes"
+    echo "==============================="
+    ls -t -d1 $* ~/Dropbox/work/notes/* | head -n15
+    echo ""
+    echo ""
+
+    echo "Personal notes"
+    echo "==============================="
+    ls -t -d1 $* ~/Dropbox/notes/* | head -n15
+    echo ""
+    echo ""
+}
+
 # Specific git funcs/aliases
 source `dirname "${BASH_SOURCE[0]}"`/git_aliases.sh
