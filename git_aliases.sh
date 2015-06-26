@@ -94,6 +94,10 @@ whack_file() {
     git gc --aggressive --prune=now
 }
 
+changelog() {
+    git log HEAD...`git log CHANGELOG | grep commit | cut -d' ' -f2 | head -n1`
+}
+
 alias gi=gitimpact
 alias gsd=gitsvnpushed
 alias gss=gitsvndiffstats
