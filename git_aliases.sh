@@ -85,6 +85,7 @@ changelog() {
 }
 
 alias gi=gitimpacttotal
+alias gip=gitimpactpy
 alias gsd=gitsvnpushed
 alias gss=gitsvndiffstats
 alias gwhackfile=whack_file
