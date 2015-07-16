@@ -79,7 +79,7 @@ map <Leader>P <S-Enter>P
 map <Leader>p <CR>p
 
 " Show current file in Marked.app
-:nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+:nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<cr>
 
 " Enable 'pretty paste' mode when copying with mouse to avoid crazy indentation
 map <Leader>mp :set paste<CR>
