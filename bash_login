@@ -30,5 +30,8 @@ set -o vi
 # Load fzf search extension for ctrl-r
 source ~/.fzf.bash
 
-# added by Anaconda 2.1.0 installer
-export PATH="/Users/durden/anaconda/bin:$PATH"
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    source `brew --prefix`/etc/bash_completion
+fi
+
+source $BASEDIR/git-completion.bash
