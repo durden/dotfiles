@@ -81,7 +81,7 @@ whack_file() {
 }
 
 changelog() {
-    git log HEAD...`git log CHANGELOG | grep commit | cut -d' ' -f2 | head -n1`
+    git log HEAD...`git log CHANGELOG* | grep commit | cut -d' ' -f2 | head -n1`
 }
 
 alias gi=gitimpacttotal
