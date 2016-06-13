@@ -8,7 +8,7 @@ filetype plugin on
 filetype plugin indent on
 
 " Specifiying these options for vim and gvim seem to differ...
-set guifont=Inconsolata:h12
+set guifont=InputMonoNarrow\ Thin:h13
 
 " Open a file in the same directory of the open file, regardless of
 " the directory you spawned vim from
