@@ -14,7 +14,11 @@ alias rm='rm -i'
 alias ipy='ipython'
 alias pyclean='find . -name "*.pyc" -delete; find . -name "__pycache__" -delete'
 
-hdfview() {
+findfunc() {
+    ack "$1" | grep def
+}
+
+hdfedit() {
     # Stupid Java app won't take arguments and right-clicking on a file doesn't
     # seem to want to open the file. So, display the full path so it's easy to
     # cut and paste in app after opening.
@@ -27,6 +31,10 @@ hdfview() {
     echo "$filename" | tr -d '\n' | pbcopy
     /Applications/TheHDFGroup/HDFView2.9/HDFView.app/Contents/MacOS/HDFView &
     #/Applications/HDFView.app/Contents/MacOS/HDFView &
+}
+
+hdfview() {
+    /Applications/HDFCompass.app/Contents/MacOS/HDFCompass $*
 }
 
 # Spell check given files in directory recursively
