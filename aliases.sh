@@ -3,7 +3,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 
 # Switch between linux/mac
-alias gvim='mvim'
+alias gvim='/usr/local/mvim'
 alias ev="gvim -p $@"
 
 alias oack='ack -l $@ | xargs gvim -p'
