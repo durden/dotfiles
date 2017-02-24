@@ -9,7 +9,7 @@ set wildmenu    " Additional help when tabbing directories, etc.
 syntax on
 set nu
 set background=dark
-colorscheme dracula
+colorscheme wwdc-2016
 set ruler
 set hls
 set guifont=Inconsolata:h12
