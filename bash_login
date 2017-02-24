@@ -9,7 +9,8 @@ source $BASEDIR/path.sh
 # Setup Python virtualenv
 source $BASEDIR/virtualenv_path.sh
 
-PS1='\[[\e[35m\]\u@\[\e[33m\]\h:\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
+PS1='[\[\e[32m\]\w\[\e[35m\]\[\e[0m\]] $ '
+#PS1='\[[\e\[35m\]\u@\[\e\[33m\]\h:\[\e\[32m\]\w\[\e\[35m\]\[\e\[0m\]] $ '
 
 # Set tab title to path relative to home dir
 # http://superuser.com/questions/419775/with-bash-iterm2-how-to-name-tabs
