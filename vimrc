@@ -106,6 +106,9 @@ map <Leader>d <Plug>DashSearch
 " Codrspace script
 map <leader>c :! codrspace_import '%:p'<cr>
 
+" Pretty format json
+map <leader>json :%!python -m json.tool<cr>
+
 
 "---------------------------------- PLUGINS ----------------------------------
 
