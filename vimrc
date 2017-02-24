@@ -61,6 +61,9 @@ map <Leader>nrel :set nu<CR>
 " Hide search highlighted text
 map <Leader> :nohl<CR>
 
+" Tell Ack vim plugin to highlight the search term
+let g:ackhighlight = 1
+
 " Possible way to do it with autocmd so that it only shows up for python files?
 "autocmd FileType python nnoremap <buffer> <Leader> :call Pep8()<CR>
 
@@ -93,6 +96,9 @@ map <Leader>tsc :SyntasticToggleMode<CR>
 
 " Force check of syntax
 map <Leader>fsc :SyntasticCheck<CR>
+
+" Use flake8 instead of pylint b/c it's faster (although checks less stuff)
+let g:syntastic_python_checkers = ['flake8']
 
 " Dash search
 map <Leader>d <Plug>DashSearch
@@ -137,3 +143,45 @@ set wildignore+=*/project_files/*
 set wildignore+=*/.ropeproject/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*/.pyc
+
+
+" From: https://gist.github.com/aroben/d54d002269d9c39f0d5c89d910f7307e 
+" Put this in your .vimrc and whenever you `git commit` you'll see the diff of
+" your commit next to your commit message.
+" For the most accurate diffs, use `git config --global commit.verbose true`
+
+" BufRead seems more appropriate here but for some reason the final `wincmd p`
+" doesn't work if we do that.
+autocmd VimEnter COMMIT_EDITMSG call OpenCommitMessageDiff()
+function OpenCommitMessageDiff()
+  " Save the contents of the z register
+  let old_z = getreg("z")
+  let old_z_type = getregtype("z")
+
+  try
+    call cursor(1, 0)
+    let diff_start = search("^diff --git")
+    if diff_start == 0
+      " There's no diff in the commit message; generate our own.
+      let @z = system("git diff --cached -M -C")
+    else
+      " Yank diff from the bottom of the commit message into the z register
+      :.,$yank z
+      call cursor(1, 0)
+    endif
+
+    " Paste into a new buffer
+    vnew
+    normal! V"zP
+  finally
+    " Restore the z register
+    call setreg("z", old_z, old_z_type)
+  endtry
+
+  " Configure the buffer
+  set filetype=diff noswapfile nomodified readonly
+  silent file [Changes\ to\ be\ committed]
+
+  " Get back to the commit message
+  wincmd p
+endfunction
