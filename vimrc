@@ -161,6 +161,8 @@ function OpenCommitMessageDiff()
   let old_z = getreg("z")
   let old_z_type = getregtype("z")
 
+  set colorcolumn=50,72
+
   try
     call cursor(1, 0)
     let diff_start = search("^diff --git")
