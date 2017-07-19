@@ -112,6 +112,9 @@ map <leader>json :%!python -m json.tool<cr>
 
 "---------------------------------- PLUGINS ----------------------------------
 
+" Google's yapf python formatter
+map <Leader>p8 :call yapf#YAPF()<cr>
+
 " Use gundo to look at local file change tree
 map <Leader>g :GundoToggle<CR>
 
