@@ -14,6 +14,10 @@ alias rm='rm -i'
 alias ipy='ipython'
 alias pyclean='find . -name "*.pyc" -delete; find . -name "__pycache__" -delete'
 
+edit() {
+    find . -iname "$1" -exec mvim -p {} +
+}
+
 findfunc() {
     ack "$1" | grep def
 }
