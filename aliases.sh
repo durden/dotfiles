@@ -93,5 +93,10 @@ recent_notes() {
     echo ""
 }
 
+cds () {
+    dir=`cat ~/Dropbox/dotfiles/common_directories.txt | fzf`
+    cd "$dir"
+}
+
 # Specific git funcs/aliases
 source `dirname "${BASH_SOURCE[0]}"`/git_aliases.sh
