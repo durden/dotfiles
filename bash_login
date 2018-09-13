@@ -33,3 +33,5 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 source $BASEDIR/git-completion.bash
+
+export GRADLE_HOME=/usr/local/gradle/gradle-2.14.1
