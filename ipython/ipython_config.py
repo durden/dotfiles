@@ -2,6 +2,7 @@
 
 c = get_config()
 
+c.TerminalInteractiveShell.editing_mode = 'vi'
 c.TerminalIPythonApp.extensions = [
     'line_profiler_ext',
     'memory_profiler_ext',
