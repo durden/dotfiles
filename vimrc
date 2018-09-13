@@ -10,6 +10,10 @@ syntax on
 set nu
 set background=dark
 colorscheme wwdc-2016
+" Other nice color schemes
+" base16-eighties
+" dracula
+
 set ruler
 set hls
 set guifont=Inconsolata:h12
